@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfigServiceService } from './config-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-app-initializer-demo-app';
+  public configs = null;
+
+  constructor(private configService: ConfigServiceService) {
+    this.configs = configService.configurations;
+  }
 }
